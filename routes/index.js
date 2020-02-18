@@ -6,6 +6,46 @@ const assert = require("assert");
 
 const dbName = "lottery";
 
+function deleteGrade(grade, cbk) {
+  const url = "mongodb://localhost:27017";
+
+  const client = new MongoClient(url);
+  client.connect(function(err) {
+    assert.equal(null, err);
+    console.log("Connected successfully to server");
+
+    const grades = client.db(dbName).collection("grades");
+
+    // Convert the timestamp to date
+
+    grade.timestamp =
+      grade.timestamp !== undefined ? new Date(grade.timestamp) : undefined;
+
+    const timestamp = new Date();
+    const date = timestamp.toDateString();
+
+    // If grade.timestamp exists we are updating
+    grades.deleteOne(
+      {
+        name: grade.name,
+        date: date,
+        timestamp: grade.timestamp
+      },
+      function(err, res) {
+        if (err) {
+          console.log("error deleting");
+        } else {
+          console.log("Mongo successfully deleted", res.deletedCount);
+          if (res.deletedCount) {
+            cbk.apply(this, arguments);
+          }
+        }
+        client.close();
+      }
+    );
+  });
+}
+
 function setGrade(grade, cbk) {
   const url = "mongodb://localhost:27017";
 
@@ -16,16 +56,24 @@ function setGrade(grade, cbk) {
 
     const grades = client.db(dbName).collection("grades");
 
+    // Convert the timestamp to date
+
+    grade.timestamp =
+      grade.timestamp !== undefined ? new Date(grade.timestamp) : undefined;
+
     const timestamp = new Date();
     const date = timestamp.toDateString();
+
+    // If grade.timestamp exists we are updating
     grades.update(
       {
         name: grade.name,
-        date: date
+        date: date,
+        timestamp: grade.timestamp
       },
       {
         date: date,
-        timestamp: timestamp,
+        timestamp: grade.timestamp || timestamp,
         name: grade.name,
         grade: grade.grade
       },
@@ -55,9 +103,9 @@ function getGrades(cbk) {
       .find({
         date: date
       })
+      .sort({ timestamp: -1 })
       .toArray((err, grades) => {
-        console.log("got grades", grades);
-
+        console.log("got grades", grades.length);
         if (err) {
           cbk(err);
           return;
@@ -67,10 +115,13 @@ function getGrades(cbk) {
   });
 }
 
-/* GET home page. */
 router.post("/setGrade", function(req, res) {
-  console.log("setGrade");
-  console.log("body", req.body);
+  console.log("***setGrade", req.ip);
+
+  if (req.ip !== "127.0.0.1") {
+    console.log("Request not from localhost ", req.ip, " ignoring");
+    return;
+  }
 
   setGrade(req.body, () => {
     console.log("done!");
@@ -78,13 +129,25 @@ router.post("/setGrade", function(req, res) {
   });
 });
 
-/* GET home page. */
+router.post("/delete", function(req, res) {
+  console.log("*** delete", req.ip);
+
+  if (req.ip !== "127.0.0.1") {
+    console.log("Request not from localhost ", req.ip, " ignoring");
+  }
+
+  deleteGrade(req.body, () => {
+    console.log("Deleted!");
+    res.json({ deleted: true });
+  });
+});
+
 router.get("/getGrades", function(req, res) {
   console.log("getGrades");
   console.log("body", req.body);
 
   getGrades(grades => {
-    console.log("done!");
+    console.log("Got grades!");
     res.json(grades);
   });
 });
