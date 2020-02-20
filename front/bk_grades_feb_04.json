@@ -1,0 +1,29 @@
+{"_id":{"$oid":"5e29de148563a513d627f6cd"},"date":"Thu Jan 23 2020","timestamp":{"$date":"2020-01-23T17:55:32.761Z"},"name":{"name":"OTALORA ROMERO, JUAN PABLO","id":2,"drawn":true},"grade":1}
+{"_id":{"$oid":"5e29de698563a513d627f6e0"},"date":"Thu Jan 23 2020","timestamp":{"$date":"2020-01-23T17:56:57.477Z"},"name":{"name":"SANCHEZ RODRIGUEZ, JUAN CAMILO","id":16,"drawn":true},"grade":2}
+{"_id":{"$oid":"5e29de6c8563a513d627f6e4"},"date":"Thu Jan 23 2020","timestamp":{"$date":"2020-01-23T17:57:00.454Z"},"name":"OTALORA ROMERO, JUAN PABLO","grade":1}
+{"_id":{"$oid":"5e29df908563a513d627f71f"},"date":"Thu Jan 23 2020","timestamp":{"$date":"2020-01-23T18:01:52.018Z"},"name":"RODRIGUEZ SERRANO, MARIANA","grade":2}
+{"_id":{"$oid":"5e29dff48563a513d627f76a"},"date":"Thu Jan 23 2020","timestamp":{"$date":"2020-01-23T18:05:21.246Z"},"name":"RIVEROS LANCHEROS, DIEGO FERNANDO","grade":2}
+{"_id":{"$oid":"5e29dff68563a513d627f76e"},"date":"Thu Jan 23 2020","timestamp":{"$date":"2020-01-23T18:03:34.974Z"},"name":"NOREAU, ANTOINE","grade":2}
+{"_id":{"$oid":"5e29e3ab8563a513d627f829"},"date":"Thu Jan 23 2020","timestamp":{"$date":"2020-01-23T18:21:10.629Z"},"name":"ESTUPIÑAN GARAVITO, KELVIN SANTIAGO","grade":2}
+{"_id":{"$oid":"5e307594c00dcbd2b7f558a1"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T17:55:32.261Z"},"name":"RIVEROS LANCHEROS, DIEGO FERNANDO","grade":2}
+{"_id":{"$oid":"5e307732c00dcbd2b7f558f6"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T18:02:26.061Z"},"name":{"name":"CORINALDI CASTAÑO, ALLAN ROY","id":11,"drawn":true},"grade":2}
+{"_id":{"$oid":"5e30797bc00dcbd2b7f55968"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T18:12:11.407Z"},"name":"ESTUPIÑAN GARAVITO, KELVIN SANTIAGO","grade":0}
+{"_id":{"$oid":"5e30798cc00dcbd2b7f5596f"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T18:12:28.894Z"},"name":"RODRIGUEZ SERRANO, MARIANA","grade":2}
+{"_id":{"$oid":"5e307a2fc00dcbd2b7f55990"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T18:15:11.973Z"},"name":"ARANGO RAMOS, JUAN DIEGO","grade":1}
+{"_id":{"$oid":"5e307a4cc00dcbd2b7f55999"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T18:15:40.509Z"},"name":"PARRA CORTES, VALERIE","grade":2}
+{"_id":{"$oid":"5e307dcac00dcbd2b7f55a47"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T18:30:34.011Z"},"name":"RUIZ BOTERO, LUIS ALFONSO","grade":2}
+{"_id":{"$oid":"5e307e00c00dcbd2b7f55a58"},"date":"Tue Jan 28 2020","timestamp":{"$date":"2020-01-28T18:31:28.732Z"},"name":"TORRES PIZA, JUAN FELIPE","grade":2}
+{"_id":{"$oid":"5e331800f7c30e08e3426a18"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T17:53:04.073Z"},"name":"ARTEAGA MENDOZA, DANIELLA","grade":2}
+{"_id":{"$oid":"5e3318bbf7c30e08e3426a8f"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:18:53.246Z"},"name":"SANCHEZ RODRIGUEZ, JUAN CAMILO","grade":2}
+{"_id":{"$oid":"5e3318c9f7c30e08e3426aa4"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T17:56:25.105Z"},"name":"CHACON BUITRAGO, VALENTINA","grade":2}
+{"_id":{"$oid":"5e3318fff7c30e08e3426ae9"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T17:57:19.4Z"},"name":"ORGANISTA CALDERON, JOSE DANIEL","grade":1}
+{"_id":{"$oid":"5e3319c8f7c30e08e3426c0a"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:00:40.632Z"},"name":"VACA TIBOCHA, JUAN SEBASTIAN","grade":2}
+{"_id":{"$oid":"5e331a73f7c30e08e3426d2b"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:03:31.201Z"},"name":"ESTUPIÑAN GARAVITO, KELVIN SANTIAGO","grade":1}
+{"_id":{"$oid":"5e331a99f7c30e08e3426d77"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:04:09.851Z"},"name":"CONTRERAS CASTELLANOS, JEISON MATEO","grade":2}
+{"_id":{"$oid":"5e331be7f7c30e08e3427015"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:09:43.781Z"},"name":"GARAVITO ROMERO, LUIS CARLOS","grade":2}
+{"_id":{"$oid":"5e331c00f7c30e08e3427050"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:23:50.335Z"},"name":"PARDO BORRERO, LAURA","grade":2}
+{"_id":{"$oid":"5e331d6cf7c30e08e34273bd"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:16:12.456Z"},"name":"PARRA CORTES, VALERIE","grade":1}
+{"_id":{"$oid":"5e331df1f7c30e08e3427517"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:18:25.341Z"},"name":"BEJARANO PUELLO, SARA  MARIA","grade":-1}
+{"_id":{"$oid":"5e331e6bf7c30e08e342768f"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:20:27.908Z"},"name":"NOREAU, ANTOINE","grade":2}
+{"_id":{"$oid":"5e331e7af7c30e08e34276c2"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:20:42.307Z"},"name":"BAUTISTA ACOSTA, OMAR DAVID JOEL","grade":-1}
+{"_id":{"$oid":"5e331e8bf7c30e08e3427701"},"date":"Thu Jan 30 2020","timestamp":{"$date":"2020-01-30T18:21:00.622Z"},"name":"RUIZ BOTERO, LUIS ALFONSO","grade":2}

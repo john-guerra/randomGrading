@@ -1,0 +1,87 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+button {
+  font-size: 8pt;
+}
+#result {
+  font-size: 50pt;
+  width: 50%;
+  float: left;
+}
+.option {
+  font-size: 18pt;
+  fill: steelblue;
+  font-family: sans-serif;
+}
+.option body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+.option button {
+  font-size: 8pt;
+}
+.option #result {
+  font-size: 50pt;
+  width: 50%;
+  float: left;
+}
+.option .option {
+  font-size: 18pt;
+  fill: steelblue;
+  font-family: sans-serif;
+}
+.option #drawnBox {
+  width: 40%;
+  float: left;
+  background: inherit;
+}
+.option .option.drawn {
+  fill: grey;
+}
+.option .option.selected,
+.option .option.selected.drawn {
+  fill: red;
+}
+.option #btnChoose {
+  font-size: 150%;
+}
+.option div.drawn span {
+  margin-right: 20px;
+}
+.option div.drawn .name {
+  font-size: 120%;
+}
+#drawnBox {
+  width: 40%;
+  float: left;
+}
+.option.drawn {
+  fill: grey;
+}
+.option.selected,
+.option.selected.drawn {
+  fill: red;
+}
+#btnChoose {
+  font-size: 150%;
+}
+div.drawn span {
+  margin-right: 20px;
+}
+div.drawn .name {
+  font-size: 120%;
+}
+div.selected {
+  font-size: 150%;
+  font-weight: bold;
+}
+.bgWhite {
+  background: #fffe;
+}
+.grade {
+  font-size: 140%;
+  font-weight: bolder;
+  margin: 0px 5px;
+}

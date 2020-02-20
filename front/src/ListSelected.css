@@ -1,0 +1,6 @@
+.optionsDrawn button {
+  display: none;
+}
+.optionsDrawn:hover button {
+  display: inline-block;
+}
