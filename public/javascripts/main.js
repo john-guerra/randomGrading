@@ -1,42 +1,63 @@
 /* global d3 */
 var options = d3.shuffle([
-  "ARANGO RAMOS, JUAN DIEGO",
-  "ARTEAGA MENDOZA, DANIELLA",
-  "BAUTISTA ACOSTA, OMAR DAVID JOEL",
-  "BEJARANO PUELLO, SARA  MARIA",
-  "BRAVO CASTELO, JUAN SEBASTIAN",
-  "CHACON BUITRAGO, VALENTINA",
-  "CONTRERAS CASTELLANOS, JEISON MATEO",
-  "CORINALDI CASTAÑO, ALLAN ROY",
-  "CORREA PUERTA, JUAN PABLO",
-  "ESTUPIÑAN GARAVITO, KELVIN SANTIAGO",
-  "GARAVITO ROMERO, LUIS CARLOS",
-  "LEON ALZATE, MATEO",
-  "MARTINEZ NIÑO, JUAN SEBASTIAN",
-  "NOREAU, ANTOINE",
-  "ORGANISTA CALDERON, JOSE DANIEL",
-  "OTALORA ROMERO, JUAN PABLO",
-  "PARDO BORRERO, LAURA",
-  "PARRA CORTES, VALERIE",
-  "RIVEROS LANCHEROS, DIEGO FERNANDO",
-  "RODRIGUEZ SERRANO, MARIANA",
-  "RUIZ BOTERO, LUIS ALFONSO",
-  "SANCHEZ RODRIGUEZ, JUAN CAMILO",
-  "TORRES PIZA, JUAN FELIPE",
-  "VACA TIBOCHA, JUAN SEBASTIAN"
+  "Bhawania, Sadiya Iqbal Dawood",
+"Bosko, Katerina",
+"Crawley, Tim",
+"Khouri, Elio F.",
+"Lei, Yuyan",
+"Li, Yunxiao",
+"Lopez, Cecilia R.",
+"Lu, Tianyu",
+"Mathew, Anshul",
+"Sarkisian, Armen",
+"Shi, Zitong",
+"Siegel, Ilana-Mahmea",
+"Sun, Guoqin",
+"Tang, Ting",
+"Wang, Rongchang",
+"Wang, Tianchang",
+"Wu, Chenjie",
+"Wu, Cuichan",
+"Xie, Yixiang",
+"Xu, Shu",
+"Xu, Wanting",
+"Zhang, Yifan",
+"Zhou, Jianhao",
+"Zhou, Yukun",
+"Zhu, Taohan",
+"Zou, Yuxiao",
+"Asala, Jeremiah O.",
+"Au-Yeung, So Man Amanda",
+"Bi, Xingjian",
+"Chen, Ke",
+"Chen, Kuan-Tsa",
+"Chen, YiAn",
+"Deng, Han",
+"Gajjar, Harshit Bhavesh",
+"Hu, Hui",
+"Lee, Ming Hsiu",
+"Leung, Aaron",
+"Mesia, Mihir Himmatbhai",
+"Shao, Yuting",
+"Sorho, Founyakon S.",
+"Sulgante, Akhila",
+"Tseng, Chun-Wei",
+"Wang, Yuan",
+"Xu, Zihan",
+"Yang, Weihong",
+"Zhang, Gaoxiang",
+"Zheng, Lingyi",
 ]);
 
 // https://cmatskas.com/get-url-parameters-using-javascript/
-var parseQueryString = function(url) {
+var parseQueryString = function (url) {
   var urlParams = {};
-  url.replace(new RegExp("([^?=&]+)(=([^&]*))?", "g"), function(
-    $0,
-    $1,
-    $2,
-    $3
-  ) {
-    urlParams[$1] = $3;
-  });
+  url.replace(
+    new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+    function ($0, $1, $2, $3) {
+      urlParams[$1] = $3;
+    }
+  );
 
   return urlParams;
 };
@@ -46,10 +67,10 @@ if (params && params.section === "2") {
   options = [];
 }
 
-var allOptions = options.map(function(d, i) {
+var allOptions = options.map(function (d, i) {
   return { name: d, id: i, drawn: false };
 });
-var optionsLeft = allOptions.map(function(d) {
+var optionsLeft = allOptions.map(function (d) {
   return d;
 });
 var optionsDrawn = [];
@@ -74,27 +95,24 @@ d3.select("#btnChoose").on("click", onChoose);
 function redraw(options) {
   var optionsSel = svg.selectAll(".option").data(options);
 
-  const opEnter = optionsSel
-    .enter()
-    .append("text")
-    .attr("class", "option");
+  const opEnter = optionsSel.enter().append("text").attr("class", "option");
 
   optionsSel
     .merge(opEnter)
     // .attr("x", width/2)
     // .attr("y", height/2)
-    .attr("id", function(d) {
+    .attr("id", function (d) {
       return "id" + d.id;
     })
-    .classed("drawn", function(d) {
+    .classed("drawn", function (d) {
       return d.drawn;
     })
-    .text(function(d) {
+    .text(function (d) {
       return d.name;
     })
     .transition()
     .duration(1000)
-    .attr("transform", function(d) {
+    .attr("transform", function (d) {
       return (
         "translate(" +
         (width / 2 - 7 * options.length) +
@@ -125,15 +143,15 @@ async function sendGrade(name, grade, gradeElementSel) {
     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "same-origin", // include, *same-origin, omit
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     redirect: "follow", // manual, *follow, error
     referrerPolicy: "no-referrer", // no-referrer, *client
     // body: "" // body data type must match "Content-Type" header
-    body: strGrade // body data type must match "Content-Type" header
+    body: strGrade, // body data type must match "Content-Type" header
   });
-  return await response.json().then(res => {
+  return await response.json().then((res) => {
     gradeElementSel.text(grade);
 
     return res;
@@ -182,21 +200,15 @@ function onChoose() {
     }
   });
 
-  var drawn = d3
-    .select("#drawn")
-    .selectAll("div.drawn")
-    .data(optionsDrawn);
+  var drawn = d3.select("#drawn").selectAll("div.drawn").data(optionsDrawn);
 
-  const drawnEnter = drawn
-    .enter()
-    .append("div")
-    .attr("class", "drawn");
+  const drawnEnter = drawn.enter().append("div").attr("class", "drawn");
 
   drawnEnter
     .append("span")
     .attr("class", "name")
     .merge(drawn.select("span.name"))
-    .text(d => d.name);
+    .text((d) => d.name);
 
   drawnEnter
     .append("span")
@@ -209,7 +221,7 @@ function onChoose() {
     .attr("class", "btnMinusOne")
     .merge(drawn.select("button.btnMinusOne"))
     .text("-1")
-    .on("click", function(d) {
+    .on("click", function (d) {
       sendGrade(d.name, -1, d3.select(this.parentElement).select("span.grade"));
     });
 
@@ -218,7 +230,7 @@ function onChoose() {
     .attr("class", "btnZero")
     .merge(drawn.select("button.btnZero"))
     .text("0")
-    .on("click", function(d) {
+    .on("click", function (d) {
       sendGrade(d.name, 0, d3.select(this.parentElement).select("span.grade"));
     });
 
@@ -227,7 +239,7 @@ function onChoose() {
     .attr("class", "btnOne")
     .merge(drawn.select("button.btnOne"))
     .text("1")
-    .on("click", function(d) {
+    .on("click", function (d) {
       sendGrade(d.name, 1, d3.select(this.parentElement).select("span.grade"));
     });
 
@@ -236,7 +248,7 @@ function onChoose() {
     .attr("class", "btnTwo")
     .merge(drawn.select("button.btnTwo"))
     .text("2")
-    .on("click", function(d) {
+    .on("click", function (d) {
       sendGrade(d.name, 2, d3.select(this.parentElement).select("span.grade"));
     });
 

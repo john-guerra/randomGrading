@@ -29,7 +29,7 @@ const ListSelected = props => {
   console.log("ListSelected", props);
 
   function sendGrade(name, grade, timestamp) {
-    return sendPost("setGrade", { name, grade, timestamp }).then(res => {
+    return sendPost("setGrade", { name, grade, timestamp, course: props.course}).then(res => {
       props.onSelect(res);
 
       return res;
@@ -42,7 +42,7 @@ const ListSelected = props => {
         `Do you really want to delete? ${name} ${grade} ${timestamp}`
       )
     ) {
-      sendPost("delete", { name, grade, timestamp }).then(res => {
+      sendPost("delete", { name, grade, timestamp, course: props.course }).then(res => {
         console.log("delete response", res);
         props.onSelect();
 
@@ -55,16 +55,16 @@ const ListSelected = props => {
     d3.select("body").on("keyup", () => {
       switch (d3.event.key) {
         case "-":
-          sendGrade(props.optionSel.name, -1);
+          sendGrade(props.optionSel.name, -1, Date.now());
           break;
         case "0":
-          sendGrade(props.optionSel.name, 0);
+          sendGrade(props.optionSel.name, 0, Date.now());
           break;
         case "1":
-          sendGrade(props.optionSel.name, 1);
+          sendGrade(props.optionSel.name, 1, Date.now());
           break;
         case "2":
-          sendGrade(props.optionSel.name, 2);
+          sendGrade(props.optionSel.name, 2, Date.now());
           break;
         default:
           break;
@@ -81,31 +81,31 @@ const ListSelected = props => {
           {option.grade !== null ? option.grade : "_"}
         </span>
         <button
-          onClick={() => sendGrade(option.name, -1, option.timestamp)}
+          onClick={() => sendGrade(option.name, -1, option.timestamp, props.course)}
           className="btnMinusOne"
         >
           -1
         </button>
         <button
-          onClick={() => sendGrade(option.name, 0, option.timestamp)}
+          onClick={() => sendGrade(option.name, 0, option.timestamp, props.course)}
           className="btnZero"
         >
           0
         </button>
         <button
-          onClick={() => sendGrade(option.name, 1, option.timestamp)}
+          onClick={() => sendGrade(option.name, 1, option.timestamp, props.course)}
           className="btnOne"
         >
           1
         </button>
         <button
-          onClick={() => sendGrade(option.name, 2, option.timestamp)}
+          onClick={() => sendGrade(option.name, 2, option.timestamp, props.course)}
           className="btnTwo"
         >
           2
         </button>
         <button
-          onClick={() => sendDelete(option.name, 2, option.timestamp)}
+          onClick={() => sendDelete(option.name, 2, option.timestamp, props.course)}
           className="btnDelete"
         >
           ❌
@@ -118,6 +118,7 @@ const ListSelected = props => {
 };
 
 ListSelected.propTypes = {
+  course: PropTypes.string.isRequired,
   optionsDrawn: PropTypes.array.isRequired,
   onSelect: PropTypes.func.isRequired
 };
