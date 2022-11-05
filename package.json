@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "both" : "yarn start & (cd front && yarn start)"
+    "both": "yarn start & (cd front && yarn start)"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
