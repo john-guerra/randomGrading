@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+const myDB = require("../db/myDB.js");
+
 // const dbName = "lottery_web";
 // const dbName = "lottery_web_spring2021";
 // const dbName = "lottery_infovis_spring2021";
@@ -16,7 +18,7 @@ router.post("/setGrade", function(req, res) {
     return;
   }
 
-  setGrade(req.body, () => {
+  myDB.setGrade(req.body, () => {
     console.log("done!");
     res.json({ inserted: true });
   });
@@ -29,7 +31,7 @@ router.post("/delete", function(req, res) {
     console.log("Request not from localhost ", req.ip, " ignoring");
   }
 
-  deleteGrade(req.body, () => {
+  myDB.deleteGrade(req.body, () => {
     console.log("Deleted!");
     res.json({ deleted: true });
   });
@@ -38,7 +40,7 @@ router.post("/delete", function(req, res) {
 router.get("/getGrades/:course", function(req, res) {
   console.log("getGrades");
 
-  getGrades(req.params.course, (grades) => {
+  myDB.getGrades(req.params.course, (grades) => {
     console.log("Got grades!");
     res.json(grades);
   });
@@ -47,7 +49,7 @@ router.get("/getGrades/:course", function(req, res) {
 router.get("/getAllGrades/:course", function(req, res) {
   console.log("getAllGrades");
 
-  getAllGrades(req.params.course, (grades) => {
+  myDB.getAllGrades(req.params.course, (grades) => {
     console.log("Got grades!");
     res.json(grades);
   });

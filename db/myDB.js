@@ -3,7 +3,7 @@ const assert = require("assert");
 
 const url = process.env.MONGO_URL || "mongodb://localhost:27017";
 
-export function deleteGrade(grade, cbk) {
+function deleteGrade(grade, cbk) {
   dbName = "lottery_" + grade.course;
 
   const client = new MongoClient(url);
@@ -44,7 +44,7 @@ export function deleteGrade(grade, cbk) {
   });
 }
 
-export function setGrade(grade, cbk) {
+function setGrade(grade, cbk) {
   dbName = "lottery_" + grade.course;
 
   const client = new MongoClient(url);
@@ -87,7 +87,7 @@ export function setGrade(grade, cbk) {
   });
 }
 
-export function getGrades(course, cbk) {
+function getGrades(course, cbk) {
   dbName = "lottery_" + course;
 
   const client = new MongoClient(url);
@@ -115,7 +115,7 @@ export function getGrades(course, cbk) {
   });
 }
 
-export function getAllGrades(course, cbk) {
+function getAllGrades(course, cbk) {
   dbName = "lottery_" + course;
 
   const client = new MongoClient(url);
@@ -138,3 +138,12 @@ export function getAllGrades(course, cbk) {
       });
   });
 }
+
+const myDB = {
+  deleteGrade,
+  setGrade,
+  getGrades,
+  getAllGrades,
+};
+
+module.exports = myDB;
