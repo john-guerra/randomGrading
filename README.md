@@ -8,6 +8,7 @@ A simple app for asking random questions to your students
 yarn install
 yarn start
 
+
 cd front
 yarn install
 yarn start
